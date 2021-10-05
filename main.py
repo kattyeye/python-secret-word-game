@@ -11,11 +11,13 @@
 
 import random
 
-words_list = ['cat', 'rat']
+words_list = ['cat', 'rat', 'mouse', 'grasshopper', 'tangerine',
+'dragon', 'donkey', 'shrek', 'pie', 'muffin', 'dog']
 
 word = random.choice(words_list)
 
-print("Guess a letter: ")
+print("Guess the letters. ")
+print('You may guess more than one letter, if you think you know the word.')
 
 guesses = ''
 
@@ -30,11 +32,10 @@ while turns > 0:
             print(char)
         else:
             print('_')
-
             failed_attempts += 1
 
     if failed_attempts == 0:
-        print("You win!")
+        print("Yay! You win!")
         print("The word is: ", word)
         break
 
@@ -43,10 +44,12 @@ while turns > 0:
     guesses += guess
 
     if guess not in word:
+
         turns -= 1
 
-        print("Wrong,")
-        print("you have", + turns, "more guesses.")
+        print("Wrong.")
+        print("You have", + turns, "more guesses.")
+
 
         if turns == 0:
-            print("You lose")
+            print("You lose :(")
